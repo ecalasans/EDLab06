@@ -46,6 +46,9 @@ public class FenwickTree {
         this.right = null;
     }
 
+    public FenwickTree(int leftSize, FenwickTree left, FenwickTree right){
+
+    }
 
 
 
