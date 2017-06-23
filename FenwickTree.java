@@ -116,6 +116,9 @@ public class FenwickTree {
         return soma;
     }
 
+    public int between(int lo, int hi){
+        return this.prefixSum(hi) - this.prefixSum(lo);
+    }
 
 
 }
