@@ -87,6 +87,35 @@ public class FenwickTree {
         }
     }
 
+    public void increment(int i, int delta){
+        this.value += delta;
+
+        if(!(i == 0 && this.leftSize == 0)){
+            if(i < this.leftSize){
+                this.left.increment(i, delta);
+            } else {
+                this.right.increment(i - this.leftSize, delta);
+            }
+        }
+    }
+
+    public int prefixSum(int upto){
+        int soma = 0;
+
+        if (this.left != null) {
+            if (this.leftSize > upto) {
+                soma = this.left.prefixSum(upto);
+            } else {
+                soma = this.left.value + this.right.prefixSum(upto - this.leftSize);
+            }
+        } else {
+            if(upto != 0){
+                soma = this.value;
+            }
+        }
+        return soma;
+    }
+
 
 
 }
